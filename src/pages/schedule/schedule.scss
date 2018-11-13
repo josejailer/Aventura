@@ -1,0 +1,43 @@
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 3.0em;
+    width: 100%;
+    font-weight: bold;
+    color:#fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: black;
+  }
+  ion-card{
+    border-radius:0%;
+  }
+
+  .card-titlegrid{
+    position: absolute;
+    top: 36%;
+    font-size: 1.8em !important;
+    width: 100%;
+    font-weight: bold;
+    color:#fff;
+  }
+
+}
+
+.gridView{
+  width: 50%; 
+  float: left;
+}

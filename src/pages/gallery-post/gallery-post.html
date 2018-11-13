@@ -1,0 +1,48 @@
+ <ion-header >
+  
+    <ion-navbar color="secondary" >
+        <ion-buttons left>
+            <button navPop ion-button icon-only>
+              <ion-icon color="light" name="arrow-back"></ion-icon>
+            </button>
+          </ion-buttons>
+      <ion-buttons start>
+        <button ion-button small clear (click)="addTargetas()">Publicar</button>
+      </ion-buttons>
+     
+      <ion-title>Crear Publicacion</ion-title>
+     
+    </ion-navbar> 
+    
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list no-lines>
+      <ion-item *ngFor="let item of datos| async" >
+        <ion-avatar item-left>
+          <img [src]="item.perfilURL" />
+        </ion-avatar>
+        <h3>{{item.displayName}}</h3>
+      </ion-item>
+      <ion-item>
+      <ion-textarea rows="3" placeholder="What's on your mind?"></ion-textarea>
+
+      </ion-item>
+      <img [src]=>
+      <ion-item>
+        <img src="{{ imgPath }}" alt="" />
+        <button ion-button block color="dark" (click)="selectImage()">Escolher foto</button>
+      </ion-item>
+      <img [src]="base64Image">
+
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <button ion-button color="dark" clear icon-only block (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+       
+      </button>
+    </ion-toolbar>
+  </ion-footer>

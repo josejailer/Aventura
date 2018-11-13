@@ -1,0 +1,35 @@
+gallery-poster {
+    ion-card {
+        height: 4.8rem;
+        margin: 0px !important;
+        width: 100% !important;
+        ion-avatar img {
+            $avatar-size: 3.2rem;
+            max-width: $avatar-size;
+            max-height: $avatar-size;
+            border-radius: .6rem !important;
+        }
+      
+    }
+    .clasInput{
+        border-radius: 5%;
+        border-color: black;
+  
+      }
+
+      .card{
+        width: 100%;
+         margin-left: 0%;
+          margin-top: 0%;
+          border-radius:0;
+          padding-bottom: 2%;
+       }
+       .redondeadonorelieve {
+        border-radius: 20px;
+        border: 1px solid rgb(192, 192, 192);
+        width:  95%;
+         height:  32px;
+         text-align: center;
+      
+      }
+}

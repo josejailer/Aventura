@@ -1,0 +1,42 @@
+<ion-menu side="left" id="authenticated" [content]="content">
+  <ion-header color="primary">
+    <ion-toolbar class="headertoolbar">
+        <ion-title >
+          <img src="http://www.weekendhang.com/images/icon.png" style="width:22%;">
+          AventurApp</ion-title>
+    </ion-toolbar>
+</ion-header>
+  <ion-content class="outer-content contentMenu" >
+      <ion-list>
+         
+          <ion-grid menuClose (click)="usu()"  class="user-profile">
+              
+              <ion-row *ngFor="let item of movi| async" >
+                  <ion-col col-4>
+                      <div class="user-avatar">
+                        <img src="{{item.perfilURL}}">
+                      </div>
+                  </ion-col>
+                  <ion-col padding-top col-8>
+                    <h2 ion-text class="no-margin bold text-black">
+                        {{item.displayName}}
+                    </h2>
+                  <ion-icon name="ios-settings" color="primary" item-start >
+                    
+                    <span ion-text class="textmenuButton">Ajustes</span>
+                  </ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+    
+      <button ion-item menuClose class="text-1x contentMenu" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icon" class="textmenuButton"></ion-icon>
+        <span ion-text class="contentMenu">{{menuItem.title}}</span>
+      </button>
+    </ion-list>
+   
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

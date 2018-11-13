@@ -1,0 +1,58 @@
+page-login,
+.login {
+}
+
+.input_cusuario {
+    width: 85%;
+    border: 1px solid #b3b3b3;
+    border-radius: 30px;
+    height: 45px;
+    margin-bottom: 2%;
+    margin-left: 7.5%;
+    background: #fff;
+}
+
+.input_cusuario input {
+    text-transform: lowercase;
+    width: 100%;
+    border: 1px solid #b3b3b3;
+    border-radius: 30px;
+    height: 45px;
+    margin-bottom: 2%;
+    /* margin-left: 7.5%; */
+    background: #fff;
+    padding-left: 5%;
+}
+
+.buttonLogin{
+    width: 100%;
+    /* background: #FF9012; */
+    /* border: 1px solid #ff9012; */
+    font-weight: 500;
+    border-radius: 28px;
+    color: #fff;
+    text-decoration: none;
+    height: 40px;
+    font-size: 1.2em;
+}
+
+.btnFacebook{
+    width: 100%;
+    /* background: #FF9012; */
+    /* border: 1px solid #ff9012; */
+    /* font-weight: 500; */
+    border-radius: 28px;
+    color: #fff;
+    text-decoration: none;
+    height: 40px;
+    font-size: 1.2em;
+}
+
+.sector_inicio .orange_let {
+    color: #ff9012;
+    font-weight: 600;
+}
+
+.iconapp{
+    margin-bottom: 7%;
+}

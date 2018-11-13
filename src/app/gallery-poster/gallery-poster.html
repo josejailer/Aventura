@@ -1,0 +1,9 @@
+       <ion-item  *ngFor="let item of user| async" >
+       <ion-avatar  item-left>
+            <img [src]="item.perfilURL" />
+        </ion-avatar>
+          <input type="text" placeholder="What's on your mind?" class="redondeadonorelieve"> 
+         
+
+        <ion-icon name="aperture" item-right></ion-icon>
+    </ion-item>

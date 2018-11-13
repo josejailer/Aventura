@@ -1,0 +1,48 @@
+page-modal-ver-mas {
+    ion-content{
+        background: rgb(229, 227, 223);
+        #map {
+          width: 100%;
+          height: 250px;
+          opacity: 0;
+          transition: opacity 150ms ease-in;
+          display: block;
+          &.show-map{
+            opacity: 1;
+          }
+        }
+        .scroll{
+          height: calc(100% - 250px);
+        }
+      }
+}
+
+.social{
+    text-align: -webkit-right;
+    font-size: 1.4em;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-right: 5%;
+}
+
+.textPublic{
+    font-size: 1.1em !important;
+    text-align: -webkit-left;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+}
+
+.facebook{
+    color: #3b5998 !important;
+    font-size: 1.5em !important;
+}
+
+.whassatp{
+    color : #25d366 !important;
+    font-size: 1.5em !important;
+}
+
+.socialSeparete {
+    padding-left: 3%;
+    padding-right: 2%;
+}

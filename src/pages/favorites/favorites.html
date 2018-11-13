@@ -1,0 +1,32 @@
+<!--
+  Generated template for the FavoritesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color = "primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Favoritos</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content *ngIf="authService.favorite">
+    <ion-card *ngFor="let item of  authService.favorite" class="model-card" (click) = "verMas(item)">
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="{{item.perfilURL}}">
+              </ion-avatar>
+              <h2 style="font-weight: bold">{{item.nombreLocal}}</h2>
+              <p>Tipo: {{item.tipo_servicio}}</p>
+              <p>{{item.subcategoria}}</p>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+</ion-content>

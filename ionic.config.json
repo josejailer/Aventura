@@ -1,0 +1,7 @@
+{
+  "name": "AventurApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

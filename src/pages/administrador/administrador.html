@@ -1,0 +1,72 @@
+<!--
+  Generated template for the AdministradorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Perfil de Administrador</ion-title>
+      <ion-buttons start (click)="newLocal()">
+        <div>
+          <ion-icon class="iconnewLocal" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+        </div>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+
+
+  <ion-content padding class="buttons-components-page">
+      <ion-card>
+        <ion-card-content>
+          <img *ngIf="!perfilURL" src="assets/img/img-icon.png" />
+          <img class="imgPost" *ngIf="perfilURL" src="{{perfilURL}}" alt="">
+        </ion-card-content>
+    
+        <ion-item>
+          <button ion-button clear item-start>
+              <input class="inputImage" id="file-input"
+              type="file" accept="image/*" (change)="handleFiles($event)" />
+            Nueva Foto</button>
+          <button ion-button clear item-end (click) = "addComent()">
+            Nuevo comentario</button>
+        </ion-item>
+
+        <ion-item *ngIf="sendComment">
+            <button ion-button clear item-end (click) = "publicComent()">
+              Publicar Comentario</button>
+          </ion-item>
+
+          
+      </ion-card>
+    
+      <ion-list>
+        <ion-item>
+          Crear Categoría
+          <button ion-button item-end outline icon-start (click) = "newCat()">
+              <ion-icon name='star'></ion-icon>
+              Nueva
+            </button>
+        </ion-item>
+    
+        <ion-item>
+          Crear Subcategoría
+          <button ion-button item-end outline icon-start (click) = "newSubCat()">
+            <ion-icon name='star'></ion-icon>
+            Nueva
+          </button>
+        </ion-item>
+    
+        <ion-item>
+          Crear Evento
+          <button ion-button item-end outline icon-end>
+            Nuevo
+            <ion-icon name='star'></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-content>

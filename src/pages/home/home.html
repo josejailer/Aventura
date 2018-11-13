@@ -1,0 +1,8 @@
+<ion-tabs [selectedIndex]="mySelectedIndex" name="conference">
+    <ion-tab [root]="tab1Root" tabTitle="Ciudades" tabIcon="calendar" tabUrlPath="conference-schedule"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Historias" tabIcon="list-box"></ion-tab>
+    <ion-tab [root]="tab5Root" tabTitle="Favoritos" tabIcon="heart" tabBadge="{{authService.favorite.length}}"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Mapa" tabIcon="map"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Acerca de" tabIcon="information-circle"></ion-tab>
+  </ion-tabs>
+  

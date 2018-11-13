@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ciudades</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-segment [(ngModel)]="relationship" color="primary">
+    <ion-segment-button value="'normal'" (click)="segmentChanged('normal')">
+      CIUDADES
+    </ion-segment-button>
+    <ion-segment-button value="'grid'" (click)="segmentChanged('grid')">
+      GRID DE CIUDADES
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="ciudad && relationship === 'normal'">
+    <ion-card *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)">
+      <img src="{{item.foto}}" />
+      <div class="card-title">{{item.nombre}} </div>
+    </ion-card>
+  </div>
+  <div *ngIf="ciudad && relationship === 'grid'">
+    <div *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)" class="cityrepeat">
+      <div class="gridView">
+        <ion-card>
+          <img src="{{item.foto}}" />
+          <div class="card-titlegrid">{{item.nombre}} </div>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

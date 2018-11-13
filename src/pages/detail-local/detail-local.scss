@@ -1,0 +1,139 @@
+page-detail-local {
+    ion-content{
+        background: rgb(229, 227, 223);
+        #map {
+          width: 100%;
+          height: 250px;
+          opacity: 0;
+          transition: opacity 150ms ease-in;
+          display: block;
+          &.show-map{
+            opacity: 1;
+          }
+        }
+        .scroll{
+          height: calc(100% - 250px);
+        }
+      }
+}
+
+.camIco{
+    font-size: 2em;
+    color: aliceblue;
+}
+
+.imgItems{
+    // width: 60%;
+    // margin-left: 25%;
+    height: 200px;
+    width: 250px;
+}
+
+.editImg{
+    font-size: 2em;
+    color: coral;
+    margin-left: -13%;
+    z-index: 10;
+    height: 30px;
+}
+
+.inputImage{
+    margin-left: -61%;
+    position: absolute;
+    margin-top: 2%;
+    width: 49%;
+    height: 40px;
+    background-color: red;
+    opacity: 0; 
+}
+
+.openLocal{
+    float: right;
+    margin-right: 5%;
+    font-size: 0.7em !important;
+    width: 100%;
+    text-align: -webkit-right;
+}
+
+.nameLocal{
+    float: left;
+    margin-right: 5%;
+    font-size: 0.7em !important;
+}
+
+.stars{
+    float: right;
+    margin-right: 5%;
+    font-size: 0.7em !important;
+}
+
+.titleCard{
+    margin-top: 3%;
+}
+
+.social{
+    text-align: -webkit-right;
+    font-size: 1.4em;
+}
+
+.socialSeparete{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.publicaciones{
+    float: left;
+    font-size: 1.2em !important;
+    width: 50%;
+    text-align: -webkit-left;
+    /* margin-right: -5%; */
+    margin-left: 5%;
+    color: #488aff;
+    margin-bottom: 2%;
+}
+
+.addPublication{
+    font-size: 2em;
+}
+
+.contentpublicaciones{
+    float: left;
+    margin-top: 1%;
+    padding-right: 3%;
+}
+
+.commentUser{
+    float: left;
+    width: 75%;
+    margin-top: 2%;
+    text-align: justify;
+    margin-left: 5%;
+}
+
+.imgComment{
+    width: 20%;
+    float: left;
+}
+
+.separeteCard{
+    margin-bottom: 2%;
+}
+
+.facebook{
+    color: #3b5998 !important;
+    font-size: 1.5em !important;
+}
+
+.whassatp{
+    color : #25d366 !important;
+    font-size: 1.5em !important;
+}
+
+.starcheck{
+    font-size: 1.5em !important;
+}
+
+.socialSeparete {
+    padding-left: 3%;
+    padding-right: 2%;
+}

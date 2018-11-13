@@ -1,0 +1,88 @@
+<!-- -->
+<ion-content class="auth-page">
+  <div class="login-content">
+      <div padding text-center>
+        <div class="logo"></div>
+        <h2 ion-text class="text-primary">
+          <strong>AventurApp</strong>
+        </h2>
+      </div>
+     
+    <ion-grid fixed no-padding>
+      <ion-row>
+        <ion-col no-padding>
+          <!-- User settings-->
+          <ion-item-group>
+            <ion-item>
+              <ion-icon name="md-list-box" item-start class="text-primary"></ion-icon>
+              <ion-label>Ciudad</ion-label>
+              <ion-select [(ngModel)]="usuarios.ciudad" cancelText="Cancelar" okText="OK">
+                <ion-option *ngFor="let ciudad of ciudades$ | async" [value]="ciudad.nombre">
+                  {{ciudad.nombre}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="md-list" item-start class="text-primary"></ion-icon>
+              <ion-label>Categoria</ion-label>
+              <ion-select [(ngModel)]="usuarios.tipo_servicio" cancelText="Cancelar" okText="OK" (ngModelChange)="onChange($event)">
+                <ion-option *ngFor="let item of categorias$ | async" [value]="item.nombre">
+                  {{item.nombre}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="subCategories.length > 0">
+              <ion-icon name="md-list" item-start class="text-primary"></ion-icon>
+              <ion-label>Subcategoria</ion-label>
+              <ion-select [(ngModel)]="usuarios.subcategoria" cancelText="Cancelar" okText="OK">
+                <ion-option *ngFor="let item of subCategories; let i = index" [value]="item">{{item}}
+                </ion-option>
+              </ion-select>
+            </ion-item>  
+          </ion-item-group>
+          <ion-item>
+              <ion-icon name="md-key" item-start class="text-primary"></ion-icon>
+              <ion-input type="text" [(ngModel)]="usuarios.nit" placeholder="Nit"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="person" item-start class="text-primary"></ion-icon>
+              <ion-input type="text" [(ngModel)]="usuarios.nombre" placeholder="Nombre de Usuairo"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="person" item-start class="text-primary"></ion-icon>
+              <ion-input type="text" [(ngModel)]="usuarios.nombreLocal" placeholder="Nombre de su local"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="md-locate" item-start class="text-primary"></ion-icon>
+              <ion-input type="text" [(ngModel)]="usuarios.direccion" placeholder="Direccion"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+              <ion-input type="email" [(ngModel)]="usuarios.email" placeholder="Correo Electrónico"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        
+              <ion-input type="password" [(ngModel)]="usuarios.password" placeholder="Password"></ion-input>
+            </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div text-center padding>
+      <ion-checkbox [(ngModel)]="isterms" (click)="clickTerm()"></ion-checkbox> I accept the Terms of Use
+    </div>
+
+    <div margin-top>
+      <button class="buttonLogin" ion-button block color="dark" tappable (click)="checkUserMarket()">
+        Regístrate
+      </button>
+    </div>
+
+    <div text-center margin-top>
+      <span ion-text color="primary" tappable (click)="irLoginLugares()">¿Tienes Cuenta?<strong> Iniciar Sesión</strong></span>
+    </div>
+
+  </div>
+</ion-content>

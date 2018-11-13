@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button navPop ion-button icon-only>
+        <ion-icon color="black" name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{local.nombre}}</ion-title>
+    <ion-buttons start *ngIf="actionLocal === 'edit'" (click) = "newPublications()">
+      <div>
+        <ion-icon class="editImg" ios="ios-megaphone" md="md-megaphone"></ion-icon>
+      </div>
+    </ion-buttons>
+    <ion-buttons right class="buttonsHeader">
+        <div>
+          <ion-icon class="editImg" ios="ios-images" md="md-images" color="light"><input class="inputImage" id="file-input"
+              type="file" accept="image/*" (change)="openGalery()" /></ion-icon>
+        </div>
+      </ion-buttons>
+    <ion-buttons right class="buttonsHeader">
+      <div>
+        <ion-icon class="editImg" ios="ios-camera" md="md-camera" color="light"><input class="inputImage" id="file-input"
+            type="file" accept="image/*" (change)="handleFiles($event, local)" /></ion-icon>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="actionLocal === 'edit'">
+    <img src="{{local.perfilURL}}" />
+    <ion-list>
+
+        <ion-item class="imgCarrousel" *ngIf="galeryLocal.length > 0">
+            <ion-slides class="imgLocal"  *ngFor="let item of galeryLocal" >
+                <ion-slide class="imgLocal" style="height: -webkit-fill-available;" [style.background-image]="getBackground(item)">
+                  </ion-slide>  
+              <!-- <ion-slide style="background-color: green">
+                  <h2>Slide 1</h2>
+                </ion-slide>
+              
+                <ion-slide style="background-color: blue">
+                  <h2>Slide 2</h2>
+                </ion-slide>
+              
+                <ion-slide style="background-color: red">
+                  <h2>Slide 3</h2>
+                </ion-slide> -->
+              
+              </ion-slides>
+
+
+
+          </ion-item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <ion-item>
+        <ion-label color="primary" floating>Descricción del local</ion-label>
+        <ion-textarea class="textArea" [(ngModel)]="local.descripcion">
+        </ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Nombre del Local</ion-label>
+        <ion-input [(ngModel)]="local.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Dirección</ion-label>
+        <ion-input [(ngModel)]="local.direccion"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Email</ion-label>
+        <ion-input [(ngModel)]="local.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>nit:</ion-label>
+        <ion-input type="tel" placeholder="nit" [(ngModel)]="local.nit"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+  <ion-card *ngIf="actionLocal === 'add'">
+      <img src="{{local.perfilURL}}" />
+      <ion-list>
+          <ion-item>
+              <ion-label color="primary">Ciudad</ion-label>
+              <ion-select [(ngModel)]="local.ciudad">
+                <ion-option *ngFor="let item of cities.cities" [value]="item.nombre">{{item.nombre}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="local.ciudad !== ''">
+              <ion-label color="primary">Categoria</ion-label>
+              <ion-select [(ngModel)]="local.tipo_servicio" (ngModelChange)="onChange($event)">
+                <ion-option *ngFor="let item of cities.categorys" [value]="item.nombre">{{item.nombre}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="subCategories.length > 0">
+                <ion-label color="primary">Subcategoria</ion-label>
+                <ion-select [(ngModel)]="local.subcategoria">
+                  <ion-option *ngFor="let item of subCategories; let i = index" [value]="item">{{item}}</ion-option>
+                </ion-select>
+              </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Descricción del local</ion-label>
+          <ion-textarea class="textArea" [(ngModel)]="local.descripcion">
+          </ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Nombre del Local</ion-label>
+          <ion-input [(ngModel)]="local.nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Dirección</ion-label>
+          <ion-input [(ngModel)]="local.direccion"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Email</ion-label>
+          <ion-input [(ngModel)]="local.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>nit:</ion-label>
+          <ion-input type="tel" placeholder="nit" [(ngModel)]="local.nit"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+</ion-content>
+
+<ion-footer *ngIf="actionLocal === 'edit'">
+  <button ion-button class="button-tipti-comprado" (click)="editLocal(local)">Guardar</button>
+</ion-footer>
+<ion-footer *ngIf="actionLocal === 'add'">
+  <button ion-button class="button-tipti-comprado" (click)="addNewLocal(local)">Guardar</button>
+</ion-footer>

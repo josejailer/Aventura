@@ -1,0 +1,74 @@
+<!-- -->
+<ion-header>
+ 
+    <ion-buttons left>
+        <button ion-button  (click)="resetPassword()">
+          <ion-icon  name="arrow-back"></ion-icon>
+
+        </button>
+      </ion-buttons>
+ 
+ </ion-header>
+<ion-content padding class="animated fadeIn login auth-page">
+    <div class="login-content">
+  
+      <!-- Logo -->
+      <div padding-horizontal text-center class="animated fadeInDown">
+          <div class="logo iconapp"></div>
+          <h2 ion-text class="text-primary">
+            <strong>AventurApp</strong>
+           <!--   <p style="font-size: 1.2em;">¡Bienvenido de nuevo!
+                <br>
+                <span class="orange_let">te extrañabamos</span>
+            </p> -->
+            
+          </h2>
+        </div>
+  
+      <!-- Login form -->
+      <!-- <ion-list>
+
+          <ion-item>
+              <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+    
+            <ion-input type="email"  [(ngModel)] = "usuario.email" placeholder="Correo Electrónico"></ion-input>
+          </ion-item> 
+        
+        </ion-list>
+        <ion-list>
+            <ion-item>
+                <ion-icon name="lock" item-start class="text-primary"></ion-icon>      
+      
+              <ion-input type="password" [(ngModel)] = "usuario.password" placeholder="Password"></ion-input>
+            </ion-item>
+        </ion-list> -->
+        <div class="input_cusuario">
+            <input type="text" [(ngModel)]="usuario.email" placeholder="Correo Electrónico" required style="text-transform: lowercase;">
+        </div>
+    
+        <div class="input_cusuario">
+            <input type="password" required [(ngModel)]="usuario.password" placeholder="Password">
+        </div>
+
+  
+      <p text-right ion-text color="primary" tappable (click)="forgotPass()"><strong>¿Olvidaste Contraseña?</strong></p>
+  
+      <div>
+        <button ion-button icon-start block class="buttonLogin" color="primary" tappable (click)="loginLugares()">
+          <ion-icon name="log-in"></ion-icon>
+          Iniciar Sesión 
+        </button>
+   
+  
+      </div>
+  
+  
+      <!-- Other links -->
+      <div text-center margin-top>
+        <span ion-text color="primary" tappable (click)="irRegistroLugares()">&iquest;Tienes un Local<strong> Publicalo aquí</strong></span>
+      </div>
+  
+    </div>
+  
+  </ion-content>
+  

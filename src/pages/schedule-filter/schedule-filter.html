@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <ion-buttons left>
+      <button navPop ion-button icon-only>
+        <ion-icon color="black" name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>CATEGORIAS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cardsFor" *ngIf="Establishments.length > 0">
+    <ion-card class="contentCard imgLocal" *ngFor="let item of Establishments" (click)="goEstablishments(item)" [style.background-image]="getBackground(item.fotoBal)" >
+      <!-- <img class="img-fluid" src="{{item.fotoBal}}" /> -->
+      <div class="card-title">{{item.tipo}} </div>
+    </ion-card>
+  </div>
+</ion-content>

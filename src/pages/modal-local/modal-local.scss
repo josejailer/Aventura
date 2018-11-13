@@ -1,0 +1,67 @@
+page-modal-local {
+
+}
+
+.imgItems{
+    // width: 60%;
+    // margin-left: 25%;
+    height: 200px;
+    width: 250px;
+}
+
+
+.button-tipti-comprado {
+    border-radius: 25px;
+    height: 40px;
+    display: inline-block;
+    background: #488aff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f8a852), to(#ff9012));
+    background-image: linear-gradient(to bottom, #488aff, #488aff);
+    border: 1px solid #f8a852;
+    border: none;
+    text-align: center;
+    color: #fff;
+    width: 80% !important;
+    margin-left: 10%;
+}
+
+.closeIcon{
+    font-size: 2em;
+    color: white;
+}
+
+.editImg{
+    font-size: 2em;
+    margin-left: -13%;
+    z-index: 10;
+    height: 30px;
+    color:  #f4f4f4;
+}
+
+.inputImage{
+    margin-left: -61%;
+    position: absolute;
+    margin-top: 2%;
+    width: 49%;
+    height: 40px;
+    background-color: red;
+    opacity: 0; 
+}
+
+.textArea .text-input{
+    height: 110px;
+}
+
+.buttonsHeader{
+    margin-left: 3%;
+    margin-right: 2%;
+}
+
+.imgCarrousel{
+    height: 150px;
+}
+
+.imgLocal{
+    background-size: cover;
+    background-position: center;
+}

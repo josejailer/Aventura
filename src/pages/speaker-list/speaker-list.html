@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Publicaciones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="model-card" (click)="presentModal()">
+    <gallery-poster></gallery-poster>
+  </ion-card>  
+ <!--- <div *ngIf="authService.commentAdmin">
+    <ion-card>
+      <ion-card-header>
+        Publicaciones del administrador
+      </ion-card-header>
+    </ion-card>
+      <ion-card *ngFor="let item of authService.commentAdmin" class="model-card">
+          <ion-card-content>
+              <img class="imgPost" src="{{item.img}}" alt="">
+            </ion-card-content>
+            <ion-item >
+              {{item.comentario}}
+            </ion-item>
+        </ion-card>
+  </div>-->
+
+  <ion-card>
+      <ion-card-header>
+        Publicaciones de locales
+      </ion-card-header>
+    </ion-card>
+<!--  <ion-card *ngFor="let item of  datos$ | async" class="model-card" (click) = "verMas(item)">
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{item.photeURL}}">
+          </ion-avatar>
+          <h2 style="font-weight: bold">{{item.local.nombre}}</h2>
+          <p>Tipo: {{item.local.tipo_servicio}}</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-card>-->
+
+  <ion-card *ngFor="let item of  datos$ | async" class="model-card" >
+    <ion-item>
+        <button no-margin no-padding clear color="black" ion-button icon-only style="float: right; top: 3px" (click)="presentPostPopover()">
+            <ion-icon name="more"></ion-icon>
+        </button>
+      <ion-avatar item-start>
+        <img src="{{item.photeURL}}">
+      </ion-avatar>
+      <h2 style="font-weight: bold">{{item.local.nombre}}</h2>
+      <p>{{item.fechaPublicacion}}</p>
+    </ion-item>
+    <ion-card-content>
+        <p>{{item.textoPublicacion}}</p>
+      </ion-card-content>
+      <img src="{{item.photeURL}}" (click) = "verMas(item)">
+
+     
+
+    <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        
+      </ion-row>
+      </ion-card>
+
+  
+</ion-content>

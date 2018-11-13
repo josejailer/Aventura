@@ -1,0 +1,94 @@
+<!--
+  Generated template for the DetailLocalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <ion-buttons left>
+      <button navPop ion-button icon-only>
+        <ion-icon color="black" name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{local.nombre}}</ion-title>
+    <!-- <ion-buttons right>
+      <div>
+        <ion-icon ios="ios-camera" md="md-camera" class="camIco"></ion-icon>
+      </div>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="local">
+    <img src="{{local.perfilURL}}" />
+    <ion-card-content>
+      <ion-card-title class="titleCard">
+        <div class="openLocal">Abierto</div>
+        <div class="nameLocal">{{local.nombre}}</div>
+        <div class="stars">
+          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+        </div>
+      </ion-card-title>
+      <div class="social">
+          <ion-icon ios="ios-chatboxes" md="md-chatboxes" class="facebook" (click) = "socialSharFacebook()"></ion-icon>
+          <ion-icon ios="logo-whatsapp" md="logo-whatsapp" (click) = "socialSharWhass()" class="socialSeparete whassatp"></ion-icon>
+          <ion-icon *ngIf="isFavorite" ios="ios-heart" md="md-heart" color="star" class="starcheck" (click) = "removeFavorite()"></ion-icon>
+          <ion-icon *ngIf="!isFavorite" ios="ios-heart" md="md-heart" color="secondary" class="starcheck" (click) = "sendFavorite()"></ion-icon>
+          <!-- <ion-icon ios="ios-share" md="md-share" color="primary"></ion-icon>
+        <ion-icon ios="ios-chatboxes" md="md-chatboxes" color="primary" class="socialSeparete"></ion-icon>
+        <ion-icon ios="ios-heart" md="md-heart" color="primary"></ion-icon> -->
+      </div>
+      <p>
+        {{local.descripcion}}
+      </p>
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon ios="ios-navigate" md="md-navigate" item-start style="color: #d03e84"></ion-icon>
+      Dirección: {{local.direccion}}
+    </ion-item>
+    <ion-item>
+      <ion-icon ios="ios-call" md="md-call" item-start style="color: #55acee"></ion-icon>
+      Telefonos: 25555500950
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+      <div id="map"></div>
+      <ion-scroll scrollY="true" class="scroll">
+        <div padding-horizontal id="panel"></div>
+      </ion-scroll>
+    </ion-card>
+
+
+
+
+
+  
+  <div>
+    <div class="publicaciones">
+      <div class="contentpublicaciones">Publicaciones</div>
+      <ion-icon ios="ios-add-circle" md="md-add-circle" color="primary" class="addPublication" (click)="publicComment()"></ion-icon>
+    </div>
+  </div>
+  <div *ngIf="comment">
+    <ion-card *ngFor="let item of comment">
+      <ion-card-content>
+        <div>
+          <img class="imgComment" src="{{item.perfilURL}}" />
+        </div>
+        <div class="commentUser">
+          {{item.comentario}}
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

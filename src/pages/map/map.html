@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mis Sitios</ion-title>
+    <ion-buttons start (click)="newLocal()">
+      <div>
+        <ion-icon class="iconnewLocal" ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map-page">
+  <ion-list *ngFor="let item of authService.local" (click)="editLocal(item,'')">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="{{item.perfilURL}}">
+      </ion-thumbnail>
+      <h2>{{item.nombre}}</h2>
+      <p>{{item.direccion}}</p>
+      <p>Categoría: {{item.tipo_servicio}}</p>
+      <p>Ciudad: {{item.ciudad}}</p>
+      <div class="line"></div>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-row>
+    <ion-col col-12 *ngIf="authService.Establishments">
+      <div class="urgentes_p" *ngFor="let item of authService.Establishments">
+        
+        <div *ngIf="authService.local.length > 0">
+          <a class="item item-icon-left anchor-shopper" *ngFor="let locales of authService.local">
+            <div class="data-pedido" *ngIf="locales.tipo_servicio === item.tipo">
+              <ion-row>
+                <ion-col col-3>
+                  <img src="assets/img/vistahermosa.png" class="imgPedidos" alt="">
+                </ion-col>
+                <ion-col col-9 style="margin-left: 0%">
+                  <ion-row>
+                    <ion-col col-8>
+                      <div class="peidoNumber">
+                        {{locales.tipo_servicio}}: {{locales.nombre}}
+                      </div>
+                    </ion-col>
+                    <ion-col col-4>
+                      <div class="itemsNumber" (click) = "editLocal(locales, item)">
+                        Editar
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col col-12>
+                      <div class="horaEntrega">
+                        {{locales.direccion}}
+                      </div>
+                    </ion-col>
+                    <ion-col col-12>
+                      <div class="estadoPedido">
+                        <div>Abierto desde las 6-am hasta las 7-pm</div>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </div>
+          </a>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row> -->
+</ion-content>
+
+
+<!-- <div class="item item-divider item-divider-shopper_gray" *ngIf="locales.tipo_servicio === item.tipo">
+                  {{item.tipo}}
+                </div> -->

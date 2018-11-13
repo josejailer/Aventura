@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "648450091349",
+    "firebase_url": "https://adaventure-d4d5e.firebaseio.com",
+    "project_id": "adaventure-d4d5e",
+    "storage_bucket": "adaventure-d4d5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648450091349:android:9f6c22535ea31f24",
+        "android_client_info": {
+          "package_name": "com.adventureApp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648450091349-rkamvg3e52ffh5ni4598051fh1s4ct5q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adventureApp.app",
+            "certificate_hash": "493721741f4a2932a0ae78011ad4829f060de45f"
+          }
+        },
+        {
+          "client_id": "648450091349-k1ies0a10h4atdodmf1vom34sblj6n9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbsrls0_y_eZPKDuZiefq8amBOv0xQN2M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648450091349-k1ies0a10h4atdodmf1vom34sblj6n9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
