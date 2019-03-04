@@ -34,7 +34,7 @@ export class SlidersPage {
       },
       {
         title: 'Publica Tu Negocio',
-        description: 'Ubica tu dirección nosotros la publicamos por ti'+
+        description: 'Ubica tu dirección nosotros la publicamos por ti '+
         'Encuentra tus lugares favoritos en el VALLE DEL CAUCA.',
         image: 'assets/img/slide2.png',
       },

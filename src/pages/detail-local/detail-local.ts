@@ -193,7 +193,7 @@ export class DetailLocalPage {
 
   presentPrompt() {
     let alert = this.alertCtrl.create({
-      title: 'Nuevo Comentario',
+      title: 'Comentario',
       inputs: [
         {
           name: 'comentario',

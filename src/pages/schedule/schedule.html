@@ -1,21 +1,26 @@
-<ion-header>
-  <ion-navbar no-border-bottom color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Ciudades</ion-title>
-  </ion-navbar>
+<ion-header class="cityheader" no-border-bottom color="primary">
+    <ion-navbar [color]="isAndroid ? 'royal' : 'primary'">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Ciudades</ion-title>
+</ion-navbar>
+
+<ion-toolbar no-border-top color="primary">
+     <ion-segment >
+      <ion-segment-button value="'normal'" (click)="segmentChanged('normal')">
+        <p>CIUDADES</p>
+      </ion-segment-button>
+      <ion-segment-button  value="'grid'" (click)="segmentChanged('grid')">
+       <p> GRID DE CIUDADES</p>
+      </ion-segment-button>
+    </ion-segment>
+
+ 
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-segment [(ngModel)]="relationship" color="primary">
-    <ion-segment-button value="'normal'" (click)="segmentChanged('normal')">
-      CIUDADES
-    </ion-segment-button>
-    <ion-segment-button value="'grid'" (click)="segmentChanged('grid')">
-      GRID DE CIUDADES
-    </ion-segment-button>
-  </ion-segment>
 
   <div *ngIf="ciudad && relationship === 'normal'">
     <ion-card *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)">
@@ -24,7 +29,7 @@
     </ion-card>
   </div>
   <div *ngIf="ciudad && relationship === 'grid'">
-    <div *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)" class="cityrepeat">
+   <div *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)" class="cityrepeat">
       <div class="gridView">
         <ion-card>
           <img src="{{item.foto}}" />
@@ -32,5 +37,14 @@
         </ion-card>
       </div>
     </div>
+    <!-- <ion-grid class="gridView">
+      <ion-row *ngFor="let item of ciudad;" (click)="openCategories(item.Establecimientos)" class="cityrepeat" >
+        <ion-col >
+            <img src="{{item.foto}}" />
+            <div class="card-titlegrid">{{item.nombre}} </div>
+         </ion-col>
+         
+      </ion-row>
+    </ion-grid>-->
   </div>
 </ion-content>

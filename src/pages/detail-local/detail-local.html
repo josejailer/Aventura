@@ -11,7 +11,9 @@
         <ion-icon color="black" name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{local.nombre}}</ion-title>
+    <ion-title>
+        <span ion-text>{{local.nombre}}</span>
+    </ion-title>
     <!-- <ion-buttons right>
       <div>
         <ion-icon ios="ios-camera" md="md-camera" class="camIco"></ion-icon>
@@ -21,74 +23,117 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="local">
-    <img src="{{local.perfilURL}}" />
-    <ion-card-content>
-      <ion-card-title class="titleCard">
-        <div class="openLocal">Abierto</div>
-        <div class="nameLocal">{{local.nombre}}</div>
-        <div class="stars">
-          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
-          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
-          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
-          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
-          <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+  <!--slides-->
+  <ion-slides class="to-top" pager>
+    <ion-slide *ngIf="local">
+       
+       
+        <img src="{{local.perfilURL}}" />
+    </ion-slide>
+  </ion-slides>
+
+  <!--services-->
+  <ion-grid class="border-bottom primary-bg" style="height: 7%;">
+    <ion-row>
+      <ion-col text-center>
+            <div style="text-align: right">
+              <ion-icon ios="ios-chatboxes" md="md-chatboxes" class="facebook" (click) = "socialSharFacebook()"></ion-icon>
+              <ion-icon ios="logo-whatsapp" md="logo-whatsapp" (click) = "socialSharWhass()" class="socialSeparete whassatp"></ion-icon>
+              <ion-icon *ngIf="isFavorite" ios="ios-heart" md="md-heart" color="star" class="starcheck" (click) = "removeFavorite()"></ion-icon>
+              <ion-icon *ngIf="!isFavorite" ios="ios-heart" md="md-heart" color="secondary" class="starcheck" (click) = "sendFavorite()"></ion-icon>
+              <!-- <ion-icon ios="ios-share" md="md-share" color="primary"></ion-icon>
+            <ion-icon ios="ios-chatboxes" md="md-chatboxes" color="primary" class="socialSeparete"></ion-icon>
+            <ion-icon ios="ios-heart" md="md-heart" color="primary"></ion-icon> -->
+            </div>
+           
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+      <div class="publicaciones">
+          <div class="contentpublicaciones ">Descripcion:</div>
+         
         </div>
-      </ion-card-title>
-      <div class="social">
-          <ion-icon ios="ios-chatboxes" md="md-chatboxes" class="facebook" (click) = "socialSharFacebook()"></ion-icon>
-          <ion-icon ios="logo-whatsapp" md="logo-whatsapp" (click) = "socialSharWhass()" class="socialSeparete whassatp"></ion-icon>
-          <ion-icon *ngIf="isFavorite" ios="ios-heart" md="md-heart" color="star" class="starcheck" (click) = "removeFavorite()"></ion-icon>
-          <ion-icon *ngIf="!isFavorite" ios="ios-heart" md="md-heart" color="secondary" class="starcheck" (click) = "sendFavorite()"></ion-icon>
-          <!-- <ion-icon ios="ios-share" md="md-share" color="primary"></ion-icon>
-        <ion-icon ios="ios-chatboxes" md="md-chatboxes" color="primary" class="socialSeparete"></ion-icon>
-        <ion-icon ios="ios-heart" md="md-heart" color="primary"></ion-icon> -->
-      </div>
-      <p>
+  <ion-card style="width: 100%; margin-left: 0%"> 
+
+     <!-- <div  >{{local.nombre}}</div>-->
+   
+    <p >
         {{local.descripcion}}
       </p>
-    </ion-card-content>
-
+     
+      <ion-item>
+         
+              <ion-icon color="star" ios="ios-star" md="md-star" item-start></ion-icon>
+            Raiking: 
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+           
+          </ion-item>
     <ion-item>
-      <ion-icon ios="ios-navigate" md="md-navigate" item-start style="color: #d03e84"></ion-icon>
-      Dirección: {{local.direccion}}
-    </ion-item>
-    <ion-item>
-      <ion-icon ios="ios-call" md="md-call" item-start style="color: #55acee"></ion-icon>
-      Telefonos: 25555500950
-    </ion-item>
-  </ion-card>
+        <ion-icon ios="ios-navigate" md="md-navigate" item-start style="color: #d03e84"></ion-icon>
+        Dirección: {{local.direccion}}
+      </ion-item>
+      <ion-item>
+          <ion-icon ios="ios-call" md="md-call" item-start style="color: #55acee"></ion-icon>
+          Telefonos: 25555500950
+        </ion-item>              
+    </ion-card>
 
-
-  <ion-card>
+    <div class="publicaciones">
+        <div class="contentpublicaciones ">Localizacion</div>
+      </div>
+    <ion-card style="width: 100%; margin-left: 0%">
       <div id="map"></div>
       <ion-scroll scrollY="true" class="scroll">
-        <div padding-horizontal id="panel"></div>
+        <div  id="panel"></div>
       </ion-scroll>
     </ion-card>
-
-
-
-
-
+   
+ 
+   
+      <div class="publicaciones">
+        <div class="contentpublicaciones">Comentarios </div>
+        <ion-icon ios="ios-add-circle" md="md-add-circle" color="primary" class="addPublication" (click)="publicComment()"></ion-icon>
+      </div>
+   
   
-  <div>
-    <div class="publicaciones">
-      <div class="contentpublicaciones">Publicaciones</div>
-      <ion-icon ios="ios-add-circle" md="md-add-circle" color="primary" class="addPublication" (click)="publicComment()"></ion-icon>
-    </div>
-  </div>
-  <div *ngIf="comment">
-    <ion-card *ngFor="let item of comment">
-      <ion-card-content>
-        <div>
-          <img class="imgComment" src="{{item.perfilURL}}" />
-        </div>
-        <div class="commentUser">
-          {{item.comentario}}
-        </div>
 
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <div *ngIf="comment">
+    <ion-card *ngFor="let item of comment" style="width: 100%; margin-left: 0%">
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{item.perfilURL}}">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <div>10/5/1955
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="star" ios="ios-star" md="md-star"></ion-icon>
+              <ion-icon color="dark" ios="ios-star" md="md-star"></ion-icon>
+            </div>
+      
+      </ion-item>     
+      
+        <ion-card-content style="padding-left: 20%">
+            <p style="text-align: justify">{{item.comentario}}.</p>
+        </ion-card-content>
+       
+      </ion-card>
+    </div>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
